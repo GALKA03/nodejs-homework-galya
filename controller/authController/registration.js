@@ -1,7 +1,5 @@
 // const UserSchema = require("../../models/userSchema");
 require("dotenv").config();
-
-// const bcrypt = require("bcryptjs");
 const registrationServices = require("../../services/authServise/registrationServices");
 
 const registration = async (req, res, next) => {

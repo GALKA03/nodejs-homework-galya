@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 const VerifSchema = new Schema( {
   code: {
     type: String,
-    required: true,
+    required:[true, 'Verify token is required']
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
@@ -15,17 +15,13 @@ const VerifSchema = new Schema( {
     type: Boolean,
     default:true
   },
-//   verify: {
-//     type: Boolean,
-//     default:false
-//   },
+
  createdAt:{
     type:Date,
     default:Date.now()
  }
  });
 
-  // if( !mongoose.Types.ObjectId.isValid(_id) ) return false;
   const Verification = mongoose.model('Verification', VerifSchema)
   console.log('model Verification',Verification)
   module.exports= Verification;

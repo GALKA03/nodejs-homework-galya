@@ -1,5 +1,5 @@
 const UserSchema = require("../../models/userSchema");
-const { ConflictErrors } = require("../../helpers/errors");
+// const { ConflictErrors } = require("../../helpers/errors");
 const bcrypt = require("bcryptjs");
 const gravatar = require("gravatar");
 const mailer = require("../../nodemailer/nodemailer");
@@ -10,7 +10,7 @@ const { v4: uuidv4 } = require('uuid');
 
 const registrationServices = async (email, password, body) => {
   try {
-    console.log('Verification',{code, userId})
+    // console.log('Verification',{code, userId})
     const gravatarURL = gravatar.url(UserSchema.email, {
       s: "200",
       r: "x",
@@ -22,33 +22,32 @@ const registrationServices = async (email, password, body) => {
       password: parole,
       avatarURL: gravatarURL,
     });
-      console.log('userCreate',userCreate)
+       console.log('userCreate',userCreate)
     await userCreate.save();
-
- const code = uuidv4().toString();
+ const code = '1234'
+//  const code = uuidv4().toString();
  console.log('code',code)
     const verification = new Verification({
       code,
       userId: userCreate._id,
-    });
-      
+    });     
     await verification.save();
 console.log('verification',verification)
-  
+
       const massage = {
-        from: "Meiler HW06nodejs <galyait@meta.ua>",
+        from: "Meiler <galyait@meta.ua>",
         to: email,
         subject: 'Thenk you for registration',
-        text:`Pleas confirm your email,   POST http://localhost:4043/api/auth/users/verify/${code}`,
-        html:`Pleas confirm your email,   POST http://localhost:4043/api/auth/users/verify/${code}`,
+        // text:`Pleas confirm your email,   POST http://localhost:4045/api/auth/users/verify/${code}`,
+        html:`Pleas confirm your email,   POST http://localhost:4045/api/auth/users/verify/${code}`,
       };
       //const result =await client.sandMail(massage)
        await mailer(massage);
    console.log('massage', massage)
 
   } catch {
-    err;
-    next(err);
+    error;
+    next(error);
   }
 };
 module.exports = registrationServices;

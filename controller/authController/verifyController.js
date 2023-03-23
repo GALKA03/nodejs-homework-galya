@@ -8,9 +8,9 @@ console.log('req.body', req.body)
 try{
 
 //const codeConeroller= await verifyServices()
-const codeConeroller= await verifyServices(code)
+await verifyServices(code)
 
-console.log('code control',codeConeroller)
+// console.log('code control',codeConeroller)
 
 
 res.status(200).json({

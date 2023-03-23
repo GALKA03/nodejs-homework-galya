@@ -21,21 +21,20 @@ if(!user){
 verification.active = false;
 await verification.save()
 
-user.verify =true;
+user.verify = true;
 await user.save()
 
     const massage = {
-        from: "Meiler HW06nodejs <galyait@meta.ua>",
+        from: "Meiler <galyait@meta.ua>",
         to: user.email,
         subject: "Congratulation! You are sucsessfuli registred on ouer site!",
         text: `Поздравляем с успещной регистрациуей!
     Данные учетной записи:
-    email: ${user.email},
-    password:${password}
+    email: ${user.email}
   
     Данное письмо не требует ответа!
     `,
-        html: `POST http://localhost:4043/api/auth/users/verify/${code}`,
+       // html: `POST http://localhost:4045/api/auth/users/verify/${code}`,
     };
       await mailer(massage);
 }
