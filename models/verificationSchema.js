@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 const VerifSchema = new Schema( {
   code: {
     type: String,
-    required:[true, 'Verify token is required']
+    required:true
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,

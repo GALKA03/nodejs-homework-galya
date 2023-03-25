@@ -4,6 +4,7 @@ const logout=require('./logOut')
  const currentUser =require('./currentUser')
 const verifycontroller = require('./verifyController')
 const uploadAvatar = require('./uploadAvatar')
+const forgotPassword =require('./forgotPassword')
 
 module.exports={
     registration,
@@ -11,5 +12,6 @@ module.exports={
     logout,
     currentUser,
     verifycontroller,
-    uploadAvatar
+    uploadAvatar,
+    forgotPassword
 }

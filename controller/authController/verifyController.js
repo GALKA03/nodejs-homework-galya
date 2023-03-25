@@ -1,18 +1,16 @@
 const verifyServices = require('../../services/authServise/verifyServices')
 
-const verifyController=async(res,req,next)=>{
-   const { code } = req.params;
-   
-console.log('req.paras',req.params)
-console.log('req.body', req.body)
-try{
+const verifyController=async(req, res, next)=>{
+   const {code} = req.params;
 
+   const {email}=req.body
+// console.log('req.params',req.params)
+// console.log('req.body', req.body)
+try{
 //const codeConeroller= await verifyServices()
-await verifyServices(code)
+await verifyServices(code,email)
 
 // console.log('code control',codeConeroller)
-
-
 res.status(200).json({
     status: "OK",
     code: 200,

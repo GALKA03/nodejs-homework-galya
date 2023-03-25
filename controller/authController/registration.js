@@ -6,14 +6,19 @@ const registration = async (req, res, next) => {
   try {
     const { email, password } = req.body;
      const body = req.body;
-     //console.log('req.paras',req.params)
-     //console.log('req.body', req.body)
+    //  console.log('req.paras',req.params)
+    //  console.log('req.body', req.body)
+    //  if(email){
+    //     return res.status(409).json({
+    //       message: "conflict email"
+    //     })
+    //    }
     const user = await registrationServices(email, password, body);
   
     res.status(201).json({
         status: "Created",
         code: 201,
-        message: `create ${email} and ${password}sucsess`
+        message: `create ${email} and ${password} sucsess`
       });
    return user 
   } catch (error) {
