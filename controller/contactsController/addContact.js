@@ -7,7 +7,7 @@ const gravatar = require('gravatar');
 
 const addContact = async (req, res, next) => {
   try {
-    const { _id } = req.user;
+    const { _id } = req.params;
     
     const result = await addContactServices(req.body, _id);
     res.status(201).json({

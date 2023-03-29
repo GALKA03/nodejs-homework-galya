@@ -20,6 +20,14 @@ const registration = async (req, res, next) => {
         code: 201,
         message: `create ${email} and ${password} sucsess`
       });
+      if(email){
+        return   res.status(409).json({
+        status: "Cconflict",
+        code: 201,
+        message: `${email} was registrate`
+      });
+      }
+  
    return user 
   } catch (error) {
     next(error);

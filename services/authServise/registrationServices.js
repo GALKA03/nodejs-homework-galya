@@ -1,5 +1,5 @@
 const UserSchema = require("../../models/userSchema");
-// const { ConflictErrors } = require("../../helpers/errors");
+ const { ConflictErrors } = require("../../helpers/errors");
 const bcrypt = require("bcryptjs");
 const gravatar = require("gravatar");
 const mailer = require("../../nodemailer/nodemailer");
@@ -10,7 +10,7 @@ const { v4: uuidv4 } = require('uuid');
 
 const registrationServices = async (email, password, body) => {
   try {
-    // console.log('Verification',{code, userId})
+    //console.log('Verification',{code, userId})
     const gravatarURL = gravatar.url(UserSchema.email, {
       s: "200",
       r: "x",
@@ -42,7 +42,9 @@ const registrationServices = async (email, password, body) => {
       };
        await mailer(massage);
    //console.log('massage', massage)
+   
 
+  
   } catch(error) {
     console.log(error);
   }

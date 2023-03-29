@@ -1,25 +1,25 @@
 const express = require("express");
 const router = express.Router();
-const controllerContact = require('../../controller/contactsController/index')
-// const auth= require('../../middlewares/auth')
+const {allContacts,getById,serchInContacts,addContact,removeContact,updateContact,chengOfPart} = require('../../controller/contactsController/index')
+const auth= require('../../middlewares/auth')
 const authenticate =require('../../middlewares/authenticate')
 // router.use(auth)
 
+//router.use(authenticate)
  router.use(authenticate)
-//router.use(auth)
-router.get("/", controllerContact.allContacts);
+router.get("/", allContacts);
 
-router.get("/:contactId", controllerContact.getById);
+router.get("/:contactId", getById);
 
-router.get("/search",controllerContact.serchInContacts);
+router.get("/search",serchInContacts);
 
-router.post("/", controllerContact.addContact);
+router.post("/",addContact);
 
-router.delete("/:contactId", controllerContact.removeContact);
+router.delete("/:contactId", removeContact);
 
-router.put("/:contactId", controllerContact.updateContact);
+router.put("/:contactId",updateContact);
 
-router.patch("/:contactId",controllerContact.chengOfPart);
+router.patch("/:contactId",chengOfPart);
 // router.patch(
 //     "/:id/favorite",
 //     authenticate,
