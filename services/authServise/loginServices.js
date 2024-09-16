@@ -7,7 +7,7 @@ const secret = process.env.SECRET
 
 
  const loginServices= async(email,password)=>{
-     const user = await UserSchema.findOne({ email });
+     const user = await UserSchema.findOne({ email, verify:true });
 //      console.log('user',user._id)
         //   const { _id: id } = user;
     if (!user){

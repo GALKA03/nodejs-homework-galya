@@ -12,6 +12,7 @@ const userSchema = new Schema({
     type: String,
     required: [true, "Email is required"],
     unique: true,
+    index:true, 
   },
   subscription: {
     type: String,
@@ -23,20 +24,20 @@ const userSchema = new Schema({
     default: null,
   },
   avatarURL: { type: String },
-  // token: {
+  
+  verify: {
+    type: Boolean,
+    default:false
+  }
+  
+  // verificationToken: {
   //   type: String,
-  //   default: null,
+  //   required: [true, 'Verify token is required'],
   // },
+
   
 });
 
-// userSchema.pre('save', async function(){
-//   if(this.isNew){
-
-// this.password= await bcrypt.hash(this.password, 10)
-// const hashPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-//   }
-// })
 userSchema.methods.setPassword = function (password) {
   this.password = bcrypt.hashSync(password, bcrypt, bcrypt.genSaltSync(6));
 };

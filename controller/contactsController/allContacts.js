@@ -3,7 +3,9 @@ const getAllContactsServices =require("../../services/contactServices/getAllCont
 const allContacts = async (req, res, next) => {
 
   try {
-      const{_id: owner}=req.user;
+    console.log('req.params',req.params)
+    console.log('req.user',req.user)
+      const{_id: owner}=req.params;
   const {skip=0, 
     limit=5}=req.query
   // limit=parseInt(limit) > 10 ? 10 : parseInt(limit);

@@ -1,0 +1,15 @@
+.form_conteiner{
+    text-align: center
+}
+.form{
+    background-color: aquamarine;
+    width: 500px;
+    height: auto;
+
+}
+.input{
+width: 100%;
+   border-bottom: 1px gray; 
+   background-color: aquamarine;
+   border-radius: 10%;
+}
